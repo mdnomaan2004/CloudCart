@@ -1,0 +1,4 @@
+<article class="product-card">
+  <a class="product-image" href="{{ url_for('product_detail', product_id=product.id) }}"><img src="{{ product.image_url }}" alt="{{ product.name }}" loading="lazy"><span class="product-badge">{% if product.featured %}FEATURED{% else %}CLOUDCART PICK{% endif %}</span></a>
+  <div class="product-info"><span class="product-category">{{ product.category }}</span><a href="{{ url_for('product_detail', product_id=product.id) }}"><h3>{{ product.name }}</h3></a><div class="product-bottom"><strong>₹{{ '%.2f'|format(product.price) }}</strong><form method="post" action="{{ url_for('add_to_cart', product_id=product.id) }}"><button class="add-button" type="submit" aria-label="Add {{ product.name }} to cart">+</button></form></div></div>
+</article>
